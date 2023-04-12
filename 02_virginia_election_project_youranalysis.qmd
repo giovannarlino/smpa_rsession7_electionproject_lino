@@ -1,6 +1,6 @@
 ---
 title: "Virginia Election Project"
-author: "putyournamehere"
+author: "Giovanna Lino"
 execute:
   echo: true
 format:
@@ -36,6 +36,32 @@ joined_vacomparison <- readRDS(here("processed_data", "joined_vacomparison.rds")
 ```{r}
 
 head(joined_vacomparison)
+
+
+```
+
+```{r}
+#what is the average democratic percentage for both presidential and government election in Accomack County? 
+
+joined_vacomparison %>% 
+  filter(locality == "ACCOMACK COUNTY" ) %>% 
+  group_by(biden_pct, pct_mcauliffe) %>% 
+  summarise(average = mean(biden_pct)) %>% 
+  arrange(desc(average))
+  
+
+```
+```{r}
+#create a map of the republican vote in all of the counties for both president and governor 
+
+#analyze the counties with the biggest democratic victory 
+
+#analyze the counties with the biggest republican victory 
+
+#was there a county in which Biden won for which the democratic governor didn't?
+
+
+
 
 
 ```
